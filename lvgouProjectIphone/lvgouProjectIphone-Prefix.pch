@@ -1,0 +1,41 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define IPHONE5(view) (iPhone5? [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height + 88)]:NO)
+
+#define IOS7(view) ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 ?[view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y + 20, view.frame.size.width, view.frame.size.height)]:NO)
+
+#define IOS7_STATEBAR ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 ?[self setNeedsStatusBarAppearanceUpdate]:[[UIApplication sharedApplication] setStatusBarHidden:NO])
+
+#define IOS7_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 ?YES:NO)
+
+
+//ID：2099900
+//API Key：V6I2d41e2Lv9Gc0irsKG4hsr
+//Secret Key：wSiHtSBzIeX9tLDWNbQWTuZ5tH4EpSwD
+
+
+//对应plist键值
+//baiduUserid 百度userid
+//deviceToken 手机令牌
+//userPhone   用户手机号
+//tmpPhone    临时手机号
+//userID      用户id
+//pushCount   推送条数
+
+#endif
